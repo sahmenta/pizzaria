@@ -1,28 +1,22 @@
-package pizzaria;
+package br.com.poo;
 
-import java.awt.Color;
-import java.awt.GridLayout;
+import br.com.poo.model.Ingredientes;
+import br.com.poo.model.Pizzaria;
+import br.com.poo.model.Sabor;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Scanner;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.WindowConstants;
 
 /**
  *
  * @author Samanta Scavassa
  * @author Renan de Abreu
  */
-public class Pizzaria {
+public class Main {
 
     public static void main(String[] args) {
-
-        Pizza[] pedidoArray = new Pizza[100];
-
         JFrame f = new JFrame();
 
         f.setSize(900, 800);
@@ -73,35 +67,35 @@ public class Pizzaria {
 
         Confirmar.addActionListener(new ActionListener() {
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
 
-                Ingredientes s = new Ingredientes();
-                Sabor sab = new Sabor();
+                                            Ingredientes s = new Ingredientes();
+                                            Sabor sab = new Sabor();
 
-                Pizza novoPedido = new Pizza(Tam.getText(), Integer.parseInt(Pizza.getText()), s);
+                                            Pizzaria novoPedido = new Pizzaria(Tam.getText(), Integer.parseInt(Pizza.getText()), s);
 
-                JFrame p = new JFrame();
+                                            JFrame p = new JFrame();
 
-                p.setSize(800, 800);
+                                            p.setSize(800, 800);
 
-                JLabel Pedido = new JLabel();
-                Pedido.setText("<html>" + "Dados do pedido:<br/> " + "Cliente:\t" + Name.getText()+ "<br/>Telefone:\t" 
-                        + Tel.getText() + "<br/> Sabor da Pizza:\t" + sab.retornaSabor(novoPedido.getSabor()) + "<br/>Ingredientes da Pizza\t:<br/>" 
-                        + s.ingredientePizza(Integer.parseInt(Pizza.getText())) + "<br/>Preço do Pedido:\tR$" + novoPedido.calcularValor() 
-                        + "<br/>Data do Pedido:\t" + novoPedido.dataPedido());
-                p.add(Pedido);
-                
+                                            JLabel Pedido = new JLabel();
+                                            Pedido.setText("<html>" + "Dados do pedido:<br/> " + "Cliente:<br/>" + Name.getText()+ "<br/>Telefone:<br/>"
+                                                    + Tel.getText() + "<br/> Sabor da Pizza:<br/>" + sab.retornaSabor(novoPedido.getSabor()) + "<br/>Ingredientes da Pizza\t:<br/>"
+                                                    + s.ingredientePizza(Integer.parseInt(Pizza.getText())) + "<br/>Preço do Pedido:<br/>R$" + novoPedido.calcularValor()
+                                                    + "<br/>Data do Pedido:<br/>" + novoPedido.dataPedido());
+                                            p.add(Pedido);
 
-                p.setLayout(new GridLayout(5, 5));
 
-                p.setVisible(true);
+                                            p.setLayout(new GridLayout(3, 10));
 
-                p.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                                            p.setVisible(true);
 
-            }
+                                            p.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        }
+                                        }
+
+                                    }
         );
 
         Cancelar.addActionListener(

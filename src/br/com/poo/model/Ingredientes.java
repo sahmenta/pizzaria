@@ -1,20 +1,20 @@
-package pizzaria;
+package br.com.poo.model;
 
 public class Ingredientes {
-    
-    private String [] ingredientes = {"Molho", "Mozarella", "Presunto de Parma", "Champignons", "Alcachofra", 
-        "Azeitonas Pretas", "Salame", "Pimentão", "Pimenta Roxa", "Peperoni"} ;
-    
+
+    private String [] ingredientes = {"Molho", "Mozarella", "Presunto de Parma", "Champignons", "Alcachofra",
+            "Azeitonas Pretas", "Salame", "Pimentão", "Pimenta Roxa", "Peperoni"} ;
+
     public Ingredientes(){
-   
+
     }
-    
+
     public String ingredientePizza(int sabor){
         String aux = "";
         switch(sabor){
             case 0:
                 aux = ingredientes[0] + ", ";
-                aux += ingredientes[1]; 
+                aux += ingredientes[1];
                 break;
             case 1:
                 aux = ingredientes[0] + ", ";
@@ -44,9 +44,9 @@ public class Ingredientes {
                 aux += ingredientes[2] + ", ";
                 aux += ingredientes[3];
                 break;
-               
+
         }
-        
+
         return aux;
     }
 }

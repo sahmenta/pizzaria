@@ -1,15 +1,15 @@
-package pizzaria;
+package br.com.poo.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Pizza implements Pedido{
-    
+public class Pizzaria implements Pedido {
+
     private String tamanho;
     private int sabor;
     Ingredientes s;
-    
-    public Pizza(String tamanho, int sabor, Ingredientes s){
+
+    public Pizzaria(String tamanho, int sabor, Ingredientes s){
         this.sabor = sabor;
         this.tamanho = tamanho;
         this.s = s;
@@ -30,7 +30,7 @@ public class Pizza implements Pedido{
     public void setSabor(int sabor) {
         this.sabor = sabor;
     }
-    
+
     @Override
     public double calcularValor(){
         double preco = 0;
@@ -48,12 +48,12 @@ public class Pizza implements Pedido{
         }
         return preco;
     }
-    
+
     @Override
-    public Date dataPedido(){
+    public String dataPedido(){
         SimpleDateFormat dtFormato = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date agora = new Date();
-        return agora;
+        return dtFormato.format(agora);
     }
-    
+
 }
